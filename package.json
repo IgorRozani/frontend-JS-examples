@@ -1,0 +1,27 @@
+{
+  "name": "fronend-js-examples",
+  "version": "1.0.0",
+  "description": "Repository to study some popular frontend JavaScript frameworks and libraries.",
+  "main": "index.js",
+  "dependencies": {
+    "express": "^4.14.0",
+    "mongoose": "^4.5.3"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/IgorRozani/frontend-JS-examples.git"
+  },
+  "keywords": [
+    "javascript"
+  ],
+  "author": "Igor Gustavo Oliveira Rozani",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/IgorRozani/frontend-JS-examples/issues"
+  },
+  "homepage": "https://github.com/IgorRozani/frontend-JS-examples#readme"
+}
