@@ -1,3 +1,5 @@
+var Mongoose = require("Mongoose");
+
 var eventSchema = new Mongoose.Schema({
     name: {
         type: String,
@@ -34,3 +36,4 @@ var eventSchema = new Mongoose.Schema({
 });
 
 var Event = Mongoose.model('events', eventSchema);
+module.exports = Event;
