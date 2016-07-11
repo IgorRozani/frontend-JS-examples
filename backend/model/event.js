@@ -13,9 +13,11 @@ var eventSchema = new Mongoose.Schema({
         required: true
     },
     type: {
-        name: type: String,
-        trim: true,
-        required: true,
+        name: {
+            type: String,
+            trim: true,
+            required: true
+        },
         isOnline: {
             type: Boolean,
             required: true
