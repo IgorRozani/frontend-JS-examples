@@ -69,7 +69,7 @@ exports.update = function(req, res){
 };
 
 exports.delete = function(req, res){
-  var id = req.body.id;
+  var id = req.params.id;
 
   event.remove({_id:id}, function(err,suc){
     if(err)
