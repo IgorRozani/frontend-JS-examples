@@ -1,8 +1,7 @@
 var connection = require('../connection');
 var event = require('../model/event');
-var event_data = new event();
 
-module.exports.getAll = function(req, res) {
+exports.getAll = function(req, res) {
     event.find({}, function(err, items) {
         if (err)
             res.json({
@@ -19,7 +18,7 @@ module.exports.getAll = function(req, res) {
     });
 };
 
-module.exports.get = function(req, res) {
+exports.get = function(req, res) {
     var name = req.params.name;
     event.find({
         "name": name
@@ -39,23 +38,22 @@ module.exports.get = function(req, res) {
     });
 };
 
-module.exports.add = function(req, res) {
-    var event = req.body;
-    var id = req.params.id;
+exports.add = function(req, res) {
+    var event_data = new event();
 
-    event_data.name = event.name;
-    event_data.description = event.description;
-    event_data.date = event.date;
-    event_data.type = event.type;
-    event_data.subject = event.subject;
-    event_data.keyword = event.keyword;
+    event_data.name = req.body.name;
+    event_data.description = req.body.description;
+    event_data.date = req.body.date;
+    event_data.type = req.body.type;
+    event_data.subject = req.body.subject;
+    event_data.keyword = req.body.keyword;
 
     event_data.save(function(err, suc) {
         if (err)
             res.json({
-                "message": err,
+                "error": err,
                 "status": 400,
-                "error": "Bad request"
+                "message": "Bad request"
             });
         else
             res.json({
