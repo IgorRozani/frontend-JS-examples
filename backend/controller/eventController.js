@@ -63,13 +63,18 @@ exports.add = function(req, res) {
     });
 };
 
+exports.update = function(req, res){
 
 
-/*module.exports.update = function(req, res) {
-    var event = req.body;
-    var id = req.params.id;
-}
+};
 
-module.exports.delete = function(req, res) {
-    var id = req.params.id;
-};*/
+exports.delete = function(req, res){
+  var id = req.body.id;
+
+  event.remove({_id:id}, function(err,suc){
+    if(err)
+			res.json({"status":400,"msg":"something went wrong"});
+		else
+			res.json({"status":200,"msg":"successfully deleted"});
+  });
+};

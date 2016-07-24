@@ -21,8 +21,8 @@ app.use('/static', express.static(rootPath + '/node_modules'));
 app.get('/event', eventService.getAll);
 app.get('/event/:name', eventService.get);
 app.post('/event', eventService.add);
-/*app.put('/event:id', eventService.udpate);
-app.delete('/event:id', eventService.delete);*/
+/*app.put('/event:id', eventService.udpate);*/
+app.delete('/event', eventService.delete);
 //app.use('/', express.static(rootPath + '/frontend'));
 
 app.listen(8000, function() {
