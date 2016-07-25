@@ -19,9 +19,9 @@ app.use(bodyParser.json());
 app.use('/static', express.static(rootPath + '/node_modules'));
 // Service
 app.get('/event', eventService.getAll);
-app.get('/event/:name', eventService.get);
+app.get('/event/:id', eventService.get);
 app.post('/event', eventService.add);
-//app.put('/event:id', eventService.udpate);
+app.put('/event/:id', eventService.update);
 app.delete('/event/:id', eventService.delete);
 //app.use('/', express.static(rootPath + '/frontend'));
 

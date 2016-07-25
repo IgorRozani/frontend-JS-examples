@@ -19,9 +19,9 @@ exports.getAll = function(req, res) {
 };
 
 exports.get = function(req, res) {
-    var name = req.params.name;
+    var id = req.params.id;
     event.find({
-        "name": name
+        _id: id
     }, function(err, item) {
         if (err)
             res.json({
@@ -63,18 +63,42 @@ exports.add = function(req, res) {
     });
 };
 
-exports.update = function(req, res){
+exports.update = function(req, res) {
+    var id = req.params.id;
+    var event_data = req.body;
 
-
+    event.findByIdAndUpdate({
+        _id: id
+    }, event_data, function(err, suc) {
+        if (err)
+            res.json({
+                "status": 400,
+                "msg": "Error occured",
+                "err": err
+            });
+        else
+            res.json({
+                "status": 200,
+                "Error": "successfully updated"
+            });
+    });
 };
 
-exports.delete = function(req, res){
-  var id = req.params.id;
+exports.delete = function(req, res) {
+    var id = req.params.id;
 
-  event.remove({_id:id}, function(err,suc){
-    if(err)
-			res.json({"status":400,"msg":"something went wrong"});
-		else
-			res.json({"status":200,"msg":"successfully deleted"});
-  });
+    event.remove({
+        _id: id
+    }, function(err, suc) {
+        if (err)
+            res.json({
+                "status": 400,
+                "msg": "something went wrong"
+            });
+        else
+            res.json({
+                "status": 200,
+                "msg": "successfully deleted"
+            });
+    });
 };
