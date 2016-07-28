@@ -23,7 +23,9 @@ app.get('/event/:id', eventService.get);
 app.post('/event', eventService.add);
 app.put('/event/:id', eventService.update);
 app.delete('/event/:id', eventService.delete);
-//app.use('/', express.static(rootPath + '/frontend'));
+
+//Frontends
+app.use('/angular', express.static(rootPath + '/frontend/angularjs'));
 
 app.listen(8000, function() {
     console.log('Listening on port 8000...');
